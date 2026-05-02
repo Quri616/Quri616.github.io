@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <author>
+    <name>Quri</name>
+  </author>
+  <generator uri="https://hexo.io/">Hexo</generator>
+  <icon>http://example.com/icon.png</icon>
+  <id>http://example.com/</id>
+  <link href="http://example.com/" rel="alternate"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
+  <rights>All rights reserved 2026, Quri</rights>
+  <title>Quri'Blog</title>
+  <updated>2026-04-24T16:01:38.904Z</updated>
+  <entry>
+    <author>
+      <name>Quri</name>
+    </author>
+    <content>
+      <![CDATA[<h1 id="Debian13配置SSH允许Root用户登录"><a href="#Debian13配置SSH允许Root用户登录" class="headerlink" title="Debian13配置SSH允许Root用户登录"></a>Debian13配置SSH允许Root用户登录</h1><p>SSH（Secure Shell）是一种加密网络协议，用于安全地远程登录服务器、执行命令或传输文件。它通过强加密和身份验证机制替代了不安全的 Telnet 等工具，是现代系统管理和自动化操作的基础组件。</p><h2 id="01-安装OpenSSH"><a href="#01-安装OpenSSH" class="headerlink" title="01.安装OpenSSH"></a>01.安装OpenSSH</h2><p>如果你在Debian安装程序选择安装了SSH服务，请跳转到02。</p><h3 id="1-更新系统软件源和软件包"><a href="#1-更新系统软件源和软件包" class="headerlink" title="1.更新系统软件源和软件包"></a>1.更新系统软件源和软件包</h3><p>确保软件源和软件包均为最新版本</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt update -y</span><br><span class="line">sudo apt upgrade -y</span><br></pre></td></tr></table></figure><h3 id="2-安装OpenSSH服务器"><a href="#2-安装OpenSSH服务器" class="headerlink" title="2.安装OpenSSH服务器"></a>2.安装OpenSSH服务器</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install openssh-server</span><br></pre></td></tr></table></figure><h3 id="3-设置OpenSSH服务器自启动"><a href="#3-设置OpenSSH服务器自启动" class="headerlink" title="3.设置OpenSSH服务器自启动"></a>3.设置OpenSSH服务器自启动</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl enable --now ssh</span><br></pre></td></tr></table></figure><h2 id="02-配置OpenSSH"><a href="#02-配置OpenSSH" class="headerlink" title="02.配置OpenSSH"></a>02.配置OpenSSH</h2><h3 id="1-使用nano编辑器编辑-etc-ssh-sshd-config"><a href="#1-使用nano编辑器编辑-etc-ssh-sshd-config" class="headerlink" title="1.使用nano编辑器编辑/etc/ssh/sshd_config"></a>1.使用nano编辑器编辑<code>/etc/ssh/sshd_config</code></h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nano /etc/ssh/sshd_config</span><br></pre></td></tr></table></figure><ul><li><code>PermitRootLogin yes</code>允许 root 用户直接登录（<code>prohibit-password</code> 仅限密钥，<code>no</code> 则禁止)</li><li><code>PasswordAuthentication yes</code>允许使用密码认证（<code>no</code> 则关闭密码登录）</li></ul><p>按需修改。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">PermitRootLogin yes</span><br><span class="line">PasswordAuthentication yes</span><br></pre></td></tr></table></figure><p>在 nano 编辑器中保存文件，请按：</p><p>Ctrl + O（写入输出，即保存）</p><p>确认文件名（直接按 Enter）</p><p>Ctrl + X 退出编辑器</p><h2 id="现在应该可以正常使用sshRoot用户进行密码登录了"><a href="#现在应该可以正常使用sshRoot用户进行密码登录了" class="headerlink" title="现在应该可以正常使用sshRoot用户进行密码登录了"></a>现在应该可以正常使用sshRoot用户进行密码登录了</h2>]]>
+    </content>
+    <id>http://example.com/2026/04/24/Debian13%E9%85%8D%E7%BD%AESSH%E5%B9%B6%E5%85%81%E8%AE%B8Root%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/</id>
+    <link href="http://example.com/2026/04/24/Debian13%E9%85%8D%E7%BD%AESSH%E5%B9%B6%E5%85%81%E8%AE%B8Root%E7%94%A8%E6%88%B7%E7%99%BB%E5%BD%95/"/>
+    <published>2026-04-24T15:46:03.620Z</published>
+    <summary>Debian13配置SSH允许Root用户登录教程</summary>
+    <title>Debian13配置SSH并允许Root用户登录</title>
+    <updated>2026-04-24T16:01:38.904Z</updated>
+  </entry>
+</feed>

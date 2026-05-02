@@ -1,0 +1,286 @@
+/* ============================================
+   Butterfly 自定义样式 - 修复版
+   兼容暗色模式，修复壁纸消失和菜单颜色不统一
+   ============================================ */
+
+/* ---------- 1. 顶部壁纸 - 浅色模式 ---------- */
+[data-theme="light"] #page-header {
+  background-image: url('/imga/background-light.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* ---------- 1. 顶部壁纸 - 深色模式 ---------- */
+[data-theme="dark"] #page-header {
+  background-image: url('/imga/background-dark.jpg') !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+/* ---------- 2. 导航栏磨砂玻璃（修复背景冲突）---------- */
+#nav {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+[data-theme="dark"] #nav {
+  background: rgba(30, 30, 30, 0.5) !important;
+}
+
+/* ---------- 3. 下拉菜单同步磨砂玻璃（修复颜色不统一）---------- */
+#nav .menus_item_child {
+  background: rgba(255, 255, 255, 0.5) !important;
+  backdrop-filter: blur(10px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border: none !important;
+}
+
+[data-theme="dark"] #nav .menus_item_child {
+  background: rgba(30, 30, 30, 0.5) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* ---------- 4. 导航栏所有文字统一颜色 ---------- */
+#nav .site-name,
+#nav .menus_item > a,
+#nav .site-page,
+#nav .menus_item_child li a {
+  color: var(--font-color) !important;
+}
+
+/* ---------- 5. 站点标题颜色 ---------- */
+#site-title,
+.site-name {
+  color: #333 !important;
+}
+
+[data-theme="dark"] #site-title,
+[data-theme="dark"] .site-name {
+  color: #f0f0f0 !important;
+}
+
+#site-subtitle,
+.site-subtitle {
+  color: #333 !important;
+}
+
+[data-theme="dark"] #site-subtitle,
+[data-theme="dark"] .site-subtitle {
+  color: #f0f0f0 !important;
+}
+
+/* ---------- 6. 文章页标题与元数据 ---------- */
+#post-info .post-title,
+.post-meta__date,
+.post-meta__categories,
+.post-meta__tags,
+.post-meta {
+  color: #333 !important;
+}
+
+[data-theme="dark"] #post-info .post-title,
+[data-theme="dark"] .post-meta__date,
+[data-theme="dark"] .post-meta__categories,
+[data-theme="dark"] .post-meta__tags,
+[data-theme="dark"] .post-meta {
+  color: #f0f0f0 !important;
+}
+
+/* ---------- 7. 底栏磨砂玻璃 ---------- */
+#footer {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  background-image: none !important;
+}
+
+[data-theme="dark"] #footer {
+  background: rgba(30, 30, 30, 0.6) !important;
+}
+
+#footer,
+#footer a,
+#footer span,
+#footer .copyright {
+  color: #333 !important;
+}
+
+[data-theme="dark"] #footer,
+[data-theme="dark"] #footer a,
+[data-theme="dark"] #footer span,
+[data-theme="dark"] #footer .copyright {
+  color: #f0f0f0 !important;
+}
+
+/* ---------- 8. 内容区域背景 ---------- */
+#content-inner,
+.layout,
+.recent-posts,
+.aside-content {
+  background: #f8f8f8 !important;
+}
+
+[data-theme="dark"] #content-inner,
+[data-theme="dark"] .layout,
+[data-theme="dark"] .recent-posts,
+[data-theme="dark"] .aside-content {
+  background: #1a1a1a !important;
+}
+
+/* ---------- 9. 移动端隐藏顶部社交图标 ---------- */
+@media screen and (max-width: 768px) {
+  #site_social_icons {
+    display: none !important;
+  }
+}
+
+/* ---------- 10. 卡片圆角与阴影 ---------- */
+.recent-post-item,
+.card-widget {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recent-post-item:hover,
+.card-widget:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+[data-theme="dark"] .recent-post-item,
+[data-theme="dark"] .card-widget {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* ---------- 11. 滚动条美化 ---------- */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--font-color);
+  border-radius: 4px;
+  opacity: 0.3;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* 亮色模式：文章元数据（日期、分类等）深灰色 */
+#post-meta,
+#post-meta a,
+.post-meta,
+.post-meta a {
+  color: #333 !important;
+}
+/* 暗色模式：文章元数据浅色 */
+[data-theme="dark"] #post-meta,
+[data-theme="dark"] #post-meta a,
+[data-theme="dark"] .post-meta,
+[data-theme="dark"] .post-meta a {
+  color: #ccc !important;
+}
+/* ============================================
+   音乐播放器美化 - 磨砂玻璃风格
+   ============================================ */
+
+/* 音乐页面大播放器 */
+.music-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.music-page .aplayer {
+  background: rgba(255, 255, 255, 0.6) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: none !important;
+  overflow: hidden;
+}
+
+[data-theme="dark"] .music-page .aplayer {
+  background: rgba(30, 30, 30, 0.6) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.music-page .aplayer-list {
+  background: transparent !important;
+  border-top: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .music-page .aplayer-list {
+  border-top-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.music-page .aplayer-list li {
+  color: var(--font-color) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .music-page .aplayer-list li {
+  border-bottom-color: rgba(255, 255, 255, 0.05) !important;
+}
+
+.music-page .aplayer-list li:hover {
+  background: rgba(0, 0, 0, 0.05) !important;
+}
+
+[data-theme="dark"] .music-page .aplayer-list li:hover {
+  background: rgba(255, 255, 255, 0.05) !important;
+}
+
+.music-page .aplayer-list li.aplayer-list-light {
+  background: rgba(0, 0, 0, 0.08) !important;
+}
+
+[data-theme="dark"] .music-page .aplayer-list li.aplayer-list-light {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.music-page .aplayer-info {
+  border-bottom: none !important;
+}
+
+.music-page .aplayer-title {
+  color: var(--font-color) !important;
+}
+
+.music-page .aplayer-author {
+  color: var(--font-color) !important;
+  opacity: 0.6;
+}
+
+.music-page .aplayer-time {
+  color: var(--font-color) !important;
+}
+
+.music-page .aplayer-icon path {
+  fill: var(--font-color) !important;
+}
+
+.music-page .aplayer-thumb {
+  background: var(--font-color) !important;
+}
+
+.music-page .aplayer-loaded {
+  background: rgba(0, 0, 0, 0.1) !important;
+}
+
+[data-theme="dark"] .music-page .aplayer-loaded {
+  background: rgba(255, 255, 255, 0.1) !important;
+}
+
+.music-page .aplayer-played {
+  background: #b7daff !important;
+}
+
